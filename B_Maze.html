@@ -55,25 +55,82 @@
         }
     </style>
     <script>
-        let map=[]
-        for(let i=0;i<10;i++){
-            let temp = []
-            map.push([])
-            for (let j=0;j<10;j++){
-                map[i].push('■')
-            }
-        }
 
         window.onload = function(){
+            let L = document.querySelector("#l")
+            let R = document.querySelector("#r")
+            let U = document.querySelector("#u")
+            let D = document.querySelector("#d")
             let A = document.querySelector("#map")
-            let mem=''
+
+            L.addEventListener('click',Lm)
+            R.addEventListener('click',Rm)
+            U.addEventListener('click',Um)
+            D.addEventListener('click',Dm)
+
+            let map=[]
+            let obx=0
+            let oby=0
             for(let i=0;i<10;i++){
-                for(let j=0;j<10;j++){
-                    mem+=map[i][j]
+                let temp = []
+                map.push([])
+                for (let j=0;j<10;j++){
+                    map[i].push('■')
                 }
-                mem+='<br/>'
             }
-            A.innerHTML = mem
+            let i = Math.random()*10
+
+
+            function Lm(){
+                if(obx>0){
+                    Del()
+                    obx--
+                    Add()
+                    Dis()
+                }
+            }
+            function Rm(){
+                if(obx<9){
+                    Del()
+                    obx++
+                    Add()
+                    Dis()
+                }
+            }            
+            function Um(){
+                if(oby>0){
+                    Del()
+                    oby--
+                    Add()
+                    Dis()
+                }
+            }            
+            function Dm(){
+                if(obx<9){
+                    Del()
+                    oby++
+                    Add()
+                    Dis()
+                }
+            }
+            function Del(){
+                map[oby][obx]='■'
+            }
+            function Add(){
+                map[oby][obx]='□'
+            }
+            function Dis(){
+                let mem=''
+                for(let i=0;i<10;i++){
+                    for(let j=0;j<10;j++){
+                        mem+=map[i][j]
+                    }
+                    mem+='<br/>'
+                }
+                A.innerHTML = mem
+            }
+            Dis()
+
         }
         
     </script>
@@ -84,10 +141,10 @@
         <p id='map'>55</p>
     </dic>
     <dic id='key'>
-        <p id='l'>❯</p>
-        <p id='r'>❯</p>
-        <p id='u'>❯</p>
-        <p id='d'>❯</p>
+        <button id='l' type="button">❯</button>
+        <button id='r' type="button">❯</button>
+        <button id='u' type="button">❯</button>
+        <button id='d' type="button">❯</button>
     </dic>
 </body>
 </html>
