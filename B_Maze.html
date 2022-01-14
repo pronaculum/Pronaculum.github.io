@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        #bef {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #map{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 200px;
+            line-height: 17px;
+            background-color: rgb(218, 255, 224);
+        }
+        #key{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+        }
+        #l{
+            position: relative;
+            top: -5px;
+            left: 40px;
+            transform: rotate(360deg);
+        }
+        #r{
+            position: relative;
+            left: -9px;
+            transform: rotate(180deg);
+        }
+        #u{
+            position: relative;
+            top: -21px;
+            left: -10px;
+            transform: rotate(270deg);
+        }
+        #d{
+            position: relative;
+            top: 16px;
+            left: -21px;
+            transform: rotate(90deg);
+        }
+    </style>
+    <script>
+        let map=[]
+        for(let i=0;i<10;i++){
+            let temp = []
+            map.push([])
+            for (let j=0;j<10;j++){
+                map[i].push('■')
+            }
+        }
+
+        window.onload = function(){
+            let A = document.querySelector("#map")
+            let mem=''
+            for(let i=0;i<10;i++){
+                for(let j=0;j<10;j++){
+                    mem+=map[i][j]
+                }
+                mem+='<br/>'
+            }
+            A.innerHTML = mem
+        }
+        
+    </script>
+</head>
+<body>
+    <h1><b>Maze</b></h1>
+    <dic id='bef'>
+        <p id='map'>55</p>
+    </dic>
+    <dic id='key'>
+        <p id='l'>❯</p>
+        <p id='r'>❯</p>
+        <p id='u'>❯</p>
+        <p id='d'>❯</p>
+    </dic>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 50px;
+            
+        }
+        .d0{
+            border-width: 1px;
+            background-color: rgb(174, 255, 217);
+            width: 400px;
+            padding-bottom: 10px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        }
+        button{
+            border: 0ch;
+            background-color: rgb(174, 255, 217);
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            clock_txt = document.querySelector(".clock_txt");
+            function get_time(){
+                let time = new Date();
+                let hour = time.getHours();
+                let min = time.getMinutes();
+                let sec = time.getSeconds();
+                let msec = Math.round(time.getMilliseconds()/10);
+                if(hour<10){
+                    hour=`0${hour}`
+                }
+                if(min<10){
+                    min=`0${min}`
+                }
+                if(sec<10){
+                    sec=`0${sec}`
+                }
+                if(msec>99){
+                    msec='00'
+                }else if(msec<10){
+                    msec=`0${msec}`
+                }
+                clock_txt.innerHTML = hour +':'+min+':'+sec+':'+msec;
+            }
+            function re(){
+                setInterval(get_time,10);
+            }
+            re()
+        }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="d0">
+           <h1 class="clock_txt">ss</h1> 
+           <button type="button" onclick="location.href='A_mainpage_log.html'" >뒤로</a>
+        </div>
+    </header>
+
+    <section>
+    </section>
+</body>
+</html>

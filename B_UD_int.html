@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 50px;
+            color: rgb(53, 148, 103);
+            display: flex;
+            justify-content: center;
+            align-items:center;
+
+        }
+
+        .Title{
+            display: flex;
+            height: 100px;
+            justify-content: center;
+        }
+
+        .Select{
+            text-align: center;
+            height: 400px;
+        }
+
+        .Select_header{
+            height: 50px;
+        }
+
+        .Select_section{
+            height: 50px;
+        }
+
+        .Select_button{
+            background-color: rgb(211, 255, 235);
+            border-width: 0px;
+        }
+
+        .Me{
+            display: none;
+            width: 400px;
+            background-color: rgb(211, 255, 235);
+            text-align: center;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        }
+
+        .You{
+            display: none;
+            width: 400px;
+            height: 200px;
+            text-align: center;
+            background-color: rgb(211, 255, 235);
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        }
+
+        .You_all{
+            text-align: center;
+        }
+
+        .You_header{
+            height: 100px;
+        }
+
+        .You_section{
+            display: none;
+            height: 100px;
+        }
+        
+        #bef{
+            display: block;
+        }
+        
+        input {
+            background-color: rgba(174, 255, 219, 0.877);
+            border-width: 0px;
+            padding: 10px 20px;
+            font-size: 15px;
+            text-align: center;
+            max-width: 170px;
+            
+        }
+
+        button {
+            background-color: rgb(211, 255, 235);
+            border-width: 0px;
+            font-size : 15px;
+            padding: 8px 20px;
+            text-align: center;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        }
+
+        #d0 {
+            font-size: 3px;
+        }
+
+
+
+    </style>
+
+    <script>
+    window.onload = function(){
+        //Select
+        let SY = document.querySelector("#Y")
+        let SM = document.querySelector("#M")
+        //You
+        let yup = document.querySelector(".You_up")
+        let ydown= document.querySelector(".You_down")
+        let ycorrect = document.querySelector(".You_correct")
+        let yTnT = document.querySelector(".TnT")
+        let ystart = document.querySelector(".You_start")
+        //Me
+        let result = document.querySelector(".result")
+        let input = document.querySelector(".inp")
+        let button = document.querySelector(".click")
+        let chance = document.querySelector(".chance")
+        
+        //Select
+        SY.addEventListener("click",SeY)
+        SM.addEventListener("click",SeM)
+        //You
+        yup.addEventListener("click",up)
+        ydown.addEventListener("click",down)
+        ycorrect.addEventListener("click",yay)
+        ystart.addEventListener("click",start)
+        //Me
+        button.addEventListener("click",find)
+        
+        
+
+        let sei = parseInt(Math.random()*100)
+        let chc = 5
+        let think = 50
+        let l = 0
+        let m = 100
+        let num = 0
+
+        function start(){
+            var bef = document.getElementById("bef");
+            var aft = document.getElementById("aft");
+            bef.style.display = 'none'
+            aft.style.display = 'block'
+            yTnT.innerHTML = Math.round(think)
+            }
+        function up(){
+            l=think
+            think=(think+m)/2
+            num++
+            yTnT.innerHTML = Math.round(think)
+        }
+        function down(){
+            m=think
+            think=(think+l)/2
+            num++
+            yTnT.innerHTML = Math.round(think)
+        }
+        function yay(){
+            m=think
+            think=(think+l)/2
+            num++
+            yTnT.innerHTML = 'yay'
+        }
+
+        function SeY(){
+            var Se = document.getElementById("Se");
+            var SY = document.getElementById("SY");
+            Se.style.display = 'none'
+            SY.style.display = 'block'
+            }
+        function SeM(){
+            var Se = document.getElementById("Se");
+            var SM = document.getElementById("SM");
+            Se.style.display = 'none'
+            SM.style.display = 'block'
+            }
+
+        function find(){
+            chc--
+            let inp = input.value
+            if (chc>0){
+                chance.innerHTML=chc+' times left'
+                if (sei>inp){
+                    result.innerHTML='Up'
+                }else if (sei<inp){
+                    result.innerHTML='Down'
+                }else if (sei==inp){
+                    result.innerHTML='Correct'
+                }
+            }else {
+                chance.innerHTML='Failed...'
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="all">
+        <header class="Title">
+            <h1>UP-DOWN Game Making</h1>
+        </header>
+        <div class='Select' id='Se'>
+            <header class="Select_header">
+                <p><b>Who's gonna find?</b></p>
+            </header>
+            <section class="Select_section">
+                <button class="Select_button" id="Y" type="button"><b>You</b></button>
+                <button class="Select_button" id="M" type="button"><b>Me</b></button>
+            </section>
+        </div>
+        <div class='You' id='SY'>
+            <div class='you_all'>
+                <header class="You_header">
+                    <p><b>choose number</b></p>
+                    <p class="TnT">1부터 99사이</p>
+                </header>
+                <section class="You_section" id="aft">
+                    <div>
+                        <button class="You_up" type="button"><b>UP</b></button>
+                        <button class="You_down" type="button"><b>DOWN</b></button>
+                    </div>
+                    <div>
+                        <button class="You_correct" type="button"><b>CORRECT</b></button>
+                    </div>
+                </section>
+                <section id="bef">
+                    <button class="You_start" type="button"><b>Let's Start!</b></button>
+                </section>
+            </div>
+        </div>
+        <div class="Me" id='SM'>
+            <h3>Choose number</h3>
+            <p class="chance" id=d0>5 times left</p>
+            <p class="result">1부터 10사이</p>
+            <input class="inp" type="number" value="0" max="99" min="0">
+            <button class="click" type="button">확인</button>
+        </div>
+    </div>
+</body>
+</html>

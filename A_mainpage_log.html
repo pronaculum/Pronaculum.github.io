@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0">
+
+    <title>hong's page</title>
+    <style>
+        .A {height: 120px;
+            border-style: solid;
+            border-width: 1px;
+            padding:30px;
+            margin: 20px;
+            text-align: center;
+            border-color: rgb(0, 0, 0);
+            line-height: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,.26); 
+            color: rgba(0,0,0,.7);
+            justify-content: space-around;}
+
+        .B {position: relative;
+            border-style: solid;
+            border-width: 1px;
+            padding:30px;
+            margin: 20px;
+            border-color: rgb(0, 0, 0);
+            line-height: 10px;
+            background-color: #fff;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,.26); 
+            color: rgba(0,0,0,.7);}
+        
+        .C {position: relative;
+            border-style: solid;
+            border-width: 1px;
+            padding:30px;
+            margin: 20px;
+            border-color: rgb(0, 0, 0);
+            line-height: 10px;
+            background-color: #fff;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,.26); 
+            color: rgba(0,0,0,.7);}
+
+
+        #i_h1 {display: flex;
+            justify-content: flex-end;}
+        #i_h2 {display: flex;
+            width: 200px;
+            height: 40px;
+            justify-content: space-between;}
+        #i_h3 {display: flex;
+            justify-content: center;
+            position: relative;
+            top: -20px;}
+        #i_s1 {display: flex;
+            justify-content: flex-start;
+            position: relative;
+            top: -20px;
+            height: 23px;}
+        #im1 {font-size: 15px;}
+        #im2 {font-size: 15px;
+            margin-top: 15px;}
+        #aft{
+            display: none;
+            height: 23px;
+            width: 140px;
+        }
+        
+
+
+    </style>
+    <script>
+        window.onload = function(){
+            beef = document.querySelector("#bef")
+            beef.addEventListener("click",son)
+            function son(){
+                var bef = document.getElementById("bef");
+                var aft = document.getElementById("aft");
+                bef.style.display = 'none'
+                aft.style.display = 'flex'
+                yTnT.innerHTML = Math.round(think)
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <header class="A">
+        <div id=i_h1>
+            <div id="i_h2">
+                <p id='im1'>로그인 되었습니다.</p>
+                <a id='im2' href="A_mainpage.html">로그아웃</a>
+            </div>
+        </div>
+        <br>
+        <div id="i_h3">
+            <h1>  Welcome to my page</h1>
+        </div>
+        
+    </header>
+
+    <section class="B">
+        <div id="i_s1">
+            <button type="button" 
+            onclick="location.href='B_Clock.html'">
+            <b>clock</b></button>
+            <button id="bef" type="button">
+            <b>미니게임</b></button>
+            <div id="aft">
+               <button type="button" id="aftbtn"
+                onclick="location.href='B_wowsans.html'">
+                <b>뼈칭구</b></button>
+                <button type="button" id="aftbtn"
+                onclick="location.href='B_UD_int.html'">
+                <b>Up&Down</b></button> 
+            </div>
+            
+        </div>
+        <br>
+        <div id="i_s2">
+            <img src="I_images.jfif" 
+            width="65%"
+            height="90%"
+            alt="고먐미" 
+            title="고먐미">
+        </div>
+        
+
+    </section>
+
+    <footer class="C">
+        <h1>Footer</h1>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>difficult</title>
+    <style>
+        body {
+            background-color: black;}
+        #d0 {display: flex;
+            justify-content: center;
+            color: aliceblue;}
+        #d1 {display: flex;
+            justify-content: center;
+            align-content: space-around;}
+        #d2 {background-color: black;}
+        #s0 {position: relative;
+            color: rgb(0, 0, 0);
+            background-color: black;
+            text-align: center;}
+    </style>
+</head>
+<script>
+    let clc = true
+    function funa() 
+    {
+        var x = document.getElementById("s0");
+        if (clc)
+        {
+            x.style.color = "rgb(255,255,255)";
+            document.getElementById("s0").setAttribute("onClick","changed()");
+            clc=false;
+        }
+        else
+        {
+            x.style.color = "rgb(0,0,0)";
+            document.getElementById("s0").setAttribute("onClick","");
+            clc=true;
+        }
+    }
+    function changed()
+    {
+        location.href='A_mainpage_log.html';
+    }
+</script>
+<body>
+    <div id="d0">
+        <h1>
+            IT IS VERY DIFFICULT
+        </h1> 
+    </div>
+
+    <div id="d1">
+        <img id="d2" src="I_faq.png" 
+        width="25%"
+        height="25%"
+        alt="faq" 
+        title="faq"
+        onclick="funa()">
+
+    </div>
+    <section>
+        <p id="s0" onclick="">
+            FAQ!!!
+        </p>
+    </section>
+</body>
+</html>        
